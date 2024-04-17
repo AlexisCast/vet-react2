@@ -1,0 +1,70 @@
+.SideBar {
+	position: fixed;
+	top: 0;
+	left: auto;
+	right: 0;
+	min-width: 340px;
+	z-index: 100;
+	background-color: var(--color-navbar);
+
+	display: flex;
+	flex-direction: column;
+	padding: 0 1.2rem;
+	padding-bottom: 1.2rem;
+}
+
+.SideBar header {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	height: 4rem;
+	border-bottom: 1px solid #ccc; /* Border color and style */
+}
+
+.BarsIcon {
+	cursor: pointer;
+	width: 5rem;
+}
+
+.BarsIcon:hover {
+	background-color: rgb(46, 47, 51);
+}
+
+.nav_items {
+	height: 100%;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	flex-direction: column;
+	padding: 0;
+}
+
+.nav_items li {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	height: 4rem;
+
+	width: 100%;
+	border-radius: 9px;
+	/* background-color: pink; */
+}
+
+.nav_items li:hover {
+	background-color: rgb(46, 47, 51);
+}
+
+.navItem {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 2rem;
+	cursor: pointer;
+}

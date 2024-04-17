@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
-import DesktopNavBar from "../../../pages/Root/DesktopNavBar/DesktopNavBar";
+import DesktopNavBar from "../DesktopNavBar/DesktopNavBar";
+import MobileNavBar from "../MobileNavBar/MobileNavBar";
 
 import styles from "./MainNavigation.module.css";
 
@@ -22,12 +23,10 @@ const useWindowWidth = () => {
 
 const MainNavigation = () => {
 	const windowWidth = useWindowWidth();
-	const windowIsWide = windowWidth > 1178;
+	const windowIsWide = windowWidth > 1200;
 
 	return (
-		<header>
-			{windowIsWide ? <DesktopNavBar /> : <div>MobileNavBar</div>}
-		</header>
+		<header>{windowIsWide ? <DesktopNavBar /> : <MobileNavBar />}</header>
 	);
 };
 

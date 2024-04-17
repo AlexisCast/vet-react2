@@ -1,0 +1,15 @@
+.Backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 10;
+	background: var(--color-backdrop);
+}
+
+.Portal {
+	color: var(--color-gray-100);
+	overflow: hidden;
+	background-color: var(--color-navbar);
+}

@@ -1,0 +1,19 @@
+.nav_items {
+	height: 100%;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.nav_items li {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 4rem;
+}
+
+.nav_items li:hover {
+	background-color: rgb(46, 47, 51);
+}

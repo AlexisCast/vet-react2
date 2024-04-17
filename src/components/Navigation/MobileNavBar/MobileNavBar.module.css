@@ -1,0 +1,12 @@
+.Nav {
+	padding-right: 0.5rem;
+}
+
+.BarsIcon {
+	cursor: pointer;
+	width: 5rem;
+}
+
+.BarsIcon:hover {
+	background-color: rgb(46, 47, 51);
+}
