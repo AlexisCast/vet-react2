@@ -1,0 +1,8 @@
+.PageTitle {
+	font-size: 1.5rem !important;
+	font-weight: bold !important;
+	font-family: revert !important;
+	letter-spacing: 0.2rem !important;
+	text-decoration: none;
+	color: var(--color-gray-100);
+}

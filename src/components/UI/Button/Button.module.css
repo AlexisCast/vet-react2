@@ -1,0 +1,70 @@
+@import url("../../../index.css");
+
+.Button {
+	font-family: var(--family);
+	border-radius: 8px;
+	border: 1px solid transparent;
+	padding: 0.6em 1.2em;
+	font-size: 1em;
+	font-weight: 500;
+	font-family: var(--family);
+	background-color: var(--color-gray-500);
+	color: var(--color-gray-900);
+	cursor: pointer;
+	transition: border-color 0.25s;
+	text-decoration: none;
+	min-height: 45px;
+
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Button:hover {
+	border-color: var(--color-gray-900);
+	background-color: var(--color-primary-600);
+}
+
+.Primary {
+	color: var(--paragraph); /*#fff3ec*/
+	background-color: var(--tertiary); /*#9656a1*/
+}
+
+.Secondary {
+	color: #333;
+	background-color: transparent;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+}
+
+.Small {
+	font-size: 12px;
+	padding: 10px 16px;
+}
+
+.Medium {
+	font-size: 14px;
+	padding: 11px 20px;
+}
+
+.Large {
+	font-size: 16px;
+	padding: 12px 24px;
+}
+
+.Error:hover {
+	background-color: var(--color-delete);
+}
+
+.Success:hover {
+	background-color: var(--color-success);
+}
+
+.Transparent {
+	background-color: transparent;
+	border-color: var(--color-gray-400);
+	color: var(--color-gray-400);
+}
+.Transparent:hover {
+	background-color: var(--color-gray-200);
+}
