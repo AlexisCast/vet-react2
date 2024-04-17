@@ -18,13 +18,11 @@ export const NavItem = ({ item, children, className, ...props }) => {
 	const [showSubMenu, setShowSubMenu] = useState(false);
 
 	const toggleSubMenu = () => {
-		console.log("false");
 		setShowSubMenu(false);
 	};
 
 	const handleLinkClick = () => {
 		setShowSubMenu(!showSubMenu);
-		console.log("click");
 	};
 
 	if (type === "string") {

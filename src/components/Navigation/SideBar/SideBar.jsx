@@ -12,18 +12,13 @@ export const SideBar = () => {
 	const dispatch = useDispatch();
 
 	let navItemsWithSubItems = navItems.slice(3);
-	console.log(navItemsWithSubItems);
 
 	const handleOnclick = () => {
-		console.log("clik side");
 		dispatch(uiActions.closeDrawer());
 	};
 
 	return (
 		<aside className={styles.SideBar}>
-			{/* <header className={styles.header} onClick={handleOnclick}>
-				<BarsIcon size="2xl" />
-			</header> */}
 			<header>
 				<NavItem
 					item={{ type: "string" }}
@@ -41,7 +36,8 @@ export const SideBar = () => {
 							<CaretDownIcon size="lg" />
 						</div>
 					</li>
-				))}{" "}
+          //TODO: display subItems
+				))}
 			</ul>
 		</aside>
 	);

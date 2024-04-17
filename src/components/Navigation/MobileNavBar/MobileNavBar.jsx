@@ -15,7 +15,6 @@ const MobileNavBar = () => {
 	const drawerIsVisible = useSelector((state) => state.ui.drawerIsVisible);
 
 	const handleOnclick = () => {
-		console.log("clik");
 		dispatch(uiActions.openDrawer());
 	};
 
