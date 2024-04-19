@@ -1,5 +1,7 @@
-import { BarsIcon, CaretDownIcon } from "../../Icons/Icons";
-import { NavItem } from "../../UI";
+import { Link } from "react-router-dom";
+
+import { BarsIcon, CaretDownIcon, CircleIcon } from "../../Icons/Icons";
+import { Accordion, Button, NavItem, NavItemsContainer } from "../../UI";
 
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../../store/ui-slice";
@@ -11,10 +13,20 @@ import styles from "./SideBar.module.css";
 export const SideBar = () => {
 	const dispatch = useDispatch();
 
-	let navItemsWithSubItems = navItems.slice(3);
+	let navItemsWithSubItems = navItems.slice(2);
 
 	const handleOnclick = () => {
 		dispatch(uiActions.closeDrawer());
+	};
+
+	const AccordionHeader = ({ titleText }) => {
+		console.log("name", titleText);
+		return (
+			<Button className={styles.AccordionButton} size="lg">
+				{titleText}
+				<CaretDownIcon size="lg" />
+			</Button>
+		);
 	};
 
 	return (
@@ -28,17 +40,44 @@ export const SideBar = () => {
 					<BarsIcon size="2xl" />
 				</NavItem>
 			</header>
-			<ul className={styles.nav_items}>
+			<NavItemsContainer className={styles.nav_items}>
 				{navItemsWithSubItems.map((item, index) => (
 					<li key={index}>
-						<div className={styles.navItem}>
-							{item.name}
-							<CaretDownIcon size="lg" />
-						</div>
+						{item.subItems ? (
+							<Accordion
+								title={
+									<AccordionHeader titleText={item.name} />
+								}
+								className={styles.AccordionContent}
+							>
+								{item.subItems.map((subItem, index) => (
+									<Button
+										as={Link}
+										key={index}
+										to={subItem.to}
+										className={styles.AccordionButton}
+										onClick={handleOnclick}
+									>
+										{subItem.name}
+										<CircleIcon size="2xs" />
+									</Button>
+								))}
+							</Accordion>
+						) : (
+							<Button
+								as={Link}
+								key={index}
+								to={item.to}
+								size="lg"
+								className={`${styles.AccordionButton}`}
+								onClick={handleOnclick}
+							>
+								{item.name}
+							</Button>
+						)}
 					</li>
-          //TODO: display subItems
 				))}
-			</ul>
+			</NavItemsContainer>
 		</aside>
 	);
 };

@@ -1,0 +1,19 @@
+.Accordion {
+	width: 100%;
+}
+
+.title {
+	cursor: pointer;
+}
+
+.content {
+	display: none;
+}
+
+.title.active {
+	font-weight: bold;
+}
+
+.content.active {
+	display: block;
+}

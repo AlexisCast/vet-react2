@@ -1,5 +1,5 @@
 import PageTitle from "../../../components/Navigation/PageTitle/PageTitle";
-import { Nav, NavItem } from "../../UI";
+import { Nav, NavItem, NavItemsContainer } from "../../UI";
 
 import { navItems } from "../../../util/navItems";
 
@@ -11,7 +11,7 @@ const DesktopNavBar = () => {
 			<div>
 				<PageTitle />
 			</div>
-			<ul className={styles.nav_items}>
+			<NavItemsContainer>
 				{navItems.map((item, index) => (
 					<li key={index}>
 						<NavItem item={item}>{item.name}</NavItem>
@@ -19,7 +19,7 @@ const DesktopNavBar = () => {
 				))}
 				<NavItem item={{ type: "string" }}>Log In</NavItem>
 				<NavItem item={{ type: "string" }}>Log Out</NavItem>
-			</ul>
+			</NavItemsContainer>
 		</Nav>
 	);
 };
