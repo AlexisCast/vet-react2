@@ -84,7 +84,14 @@ export const NavItem = ({ item, children, className, ...props }) => {
 	}
 };
 
+export const NavItemsContainer = ({ className, children }) => {
+	return (
+		<ul className={classNames(styles.nav_items, className)}>{children}</ul>
+	);
+};
+
 export default {
 	Nav,
 	NavItem,
+	NavItemsContainer,
 };
