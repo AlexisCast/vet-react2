@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faBars,
 	faCaretDown,
+	faCircle,
 	faCircleCheck,
 	faCircleExclamation,
 	faCircleInfo,
@@ -53,12 +54,17 @@ const CaretDownIcon = ({ iconColor = "#c0c0c0", ...props }) => (
 	/>
 );
 
+const CircleIcon = ({ iconColor = "#c0c0c0", ...props }) => (
+	<FontAwesomeIcon icon={faCircle} style={{ color: iconColor }} {...props} />
+);
+
 const BarsIcon = ({ ...props }) => <FontAwesomeIcon icon={faBars} {...props} />;
 
 export {
 	BarsIcon,
 	CaretDownIcon,
 	CloseIcon,
+	CircleIcon,
 	FailureIcon,
 	InfoIcon,
 	SuccessIcon,
