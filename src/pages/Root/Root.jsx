@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
 	Outlet,
 	useLoaderData,
@@ -8,7 +9,6 @@ import {
 import MainNavigation from "../../components/Navigation/MainNavigation/MainNavigation";
 
 import styles from "./Root.module.css";
-import { useEffect } from "react";
 
 const RootLayout = () => {
 	const navigation = useNavigation();
@@ -20,11 +20,12 @@ const RootLayout = () => {
 			return;
 		}
 
+		//TODO: function to make token equal 'Expired'
 		if (token === "EXPIRED") {
 			submit(null, { action: "/logout", method: "post" });
 			return;
 		}
-	}, [token]);
+	}, [token, submit]);
 
 	return (
 		<>

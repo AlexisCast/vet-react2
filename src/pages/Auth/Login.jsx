@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
 	Form,
 	json,
@@ -6,8 +7,9 @@ import {
 	useActionData,
 	useSearchParams,
 } from "react-router-dom";
+
 import { Input } from "../../components/UI";
-import { useEffect, useState } from "react";
+
 import { setToken, setUser } from "../../util/auth";
 
 import { CLIENT_URL } from "../../config";
