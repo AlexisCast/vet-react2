@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useSubmit } from "react-router-dom";
 
 import { BarsIcon, CaretDownIcon, CircleIcon } from "../../Icons/Icons";
 import { Accordion, Button, NavItem, NavItemsContainer } from "../../UI";
@@ -11,12 +11,22 @@ import { navItems } from "../../../util/navItems";
 import styles from "./SideBar.module.css";
 
 export const SideBar = () => {
+	const submit = useSubmit();
 	const dispatch = useDispatch();
 
 	let navItemsWithSubItems = navItems.slice(2);
 
 	const handleOnclick = () => {
 		dispatch(uiActions.closeDrawer());
+	};
+
+	const handleLogOut = () => {
+		console.log("log out");
+		dispatch(uiActions.closeDrawer());
+		submit(null, {
+			method: "post",
+			action: "/logout",
+		});
 	};
 
 	const AccordionHeader = ({ titleText }) => {
@@ -41,6 +51,17 @@ export const SideBar = () => {
 				</NavItem>
 			</header>
 			<NavItemsContainer className={styles.nav_items}>
+				<li>
+					<Button
+						as={Link}
+						to="/auth/login?mode=login"
+						size="lg"
+						className={`${styles.AccordionButton}`}
+						onClick={handleOnclick}
+					>
+						Log In
+					</Button>
+				</li>
 				{navItemsWithSubItems.map((item, index) => (
 					<li key={index}>
 						{item.subItems ? (
@@ -77,6 +98,16 @@ export const SideBar = () => {
 						)}
 					</li>
 				))}
+				<li>
+					<Button
+						as={Link}
+						size="lg"
+						className={`${styles.AccordionButton}`}
+						onClick={handleLogOut}
+					>
+						Log Out
+					</Button>
+				</li>
 			</NavItemsContainer>
 		</aside>
 	);

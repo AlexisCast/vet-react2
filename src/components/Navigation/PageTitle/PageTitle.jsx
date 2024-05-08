@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 
-import styles from "./PageTitle.module.css";
+import { TITLE } from "../../../config";
 
-const title = import.meta.env.VITE_TITLE;
+import styles from "./PageTitle.module.css";
 
 const PageTitle = () => {
 	return (
 		<Link className={styles.PageTitle} to="/">
-			{title}
+			{TITLE}
 		</Link>
 	);
 };

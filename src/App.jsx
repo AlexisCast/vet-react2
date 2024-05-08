@@ -10,12 +10,18 @@ import EditOwner from "./pages/Owners/EditOwner";
 import NewOwner from "./pages/Owners/NewOwner";
 import ErrorPage from "./pages/Error";
 
+import { action as logoutAction } from "./pages/Logout/Logout";
+import { tokenLoader } from "./util/auth.js";
+import Login, { action as loginAction } from "./pages/Auth/Login";
+import SignUp, { action as signUpAction } from "./pages/Auth/SignUp";
+
 const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <RootLayout />,
 		errorElement: <ErrorPage />,
 		id: "root",
+		loader: tokenLoader,
 		children: [
 			{
 				index: true,
@@ -48,6 +54,25 @@ const router = createBrowserRouter([
 						element: <NewOwner />,
 					},
 				],
+			},
+			{
+				path: "auth",
+				children: [
+					{
+						path: "login",
+						element: <Login />,
+						action: loginAction,
+					},
+					{
+						path: "signup",
+						element: <SignUp />,
+						action: signUpAction,
+					},
+				],
+			},
+			{
+				path: "/logout",
+				action: logoutAction,
 			},
 		],
 	},
