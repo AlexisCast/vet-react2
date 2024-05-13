@@ -7,7 +7,7 @@ import GeneralRootLayout from "./pages/Root/GeneralRoot";
 
 import HomePage from "./pages/Home/Home";
 
-import Owners from "./pages/Owners/Owners";
+import Owners, { action as ownerAction } from "./pages/Owners/Owners";
 import OwnerDetailPage from "./pages/Owners/OwnerDetail";
 import EditOwner from "./pages/Owners/EditOwner";
 import NewOwner from "./pages/Owners/NewOwner";
@@ -38,6 +38,7 @@ const router = createBrowserRouter([
 					{
 						index: true,
 						element: <Owners />,
+						action: ownerAction,
 					},
 					{
 						path: ":ownerId",
