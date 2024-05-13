@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useRouteLoaderData } from "react-router-dom";
 
 import DesktopNavBar from "../DesktopNavBar/DesktopNavBar";
 import MobileNavBar from "../MobileNavBar/MobileNavBar";
@@ -22,11 +23,19 @@ const useWindowWidth = () => {
 };
 
 const MainNavigation = () => {
+	const token = useRouteLoaderData("root");
+
 	const windowWidth = useWindowWidth();
 	const windowIsWide = windowWidth > 1200;
 
 	return (
-		<header>{windowIsWide ? <DesktopNavBar /> : <MobileNavBar />}</header>
+		<header>
+			{windowIsWide ? (
+				<DesktopNavBar token={token} />
+			) : (
+				<MobileNavBar token={token} />
+			)}
+		</header>
 	);
 };
 
