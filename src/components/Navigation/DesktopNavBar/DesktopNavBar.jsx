@@ -8,7 +8,7 @@ import { navItems } from "../../../util/navItems";
 
 import styles from "./DesktopNavBar.module.css";
 
-const DesktopNavBar = () => {
+const DesktopNavBar = ({ token }) => {
 	const submit = useSubmit();
 
 	const handleLogOut = () => {
@@ -30,22 +30,28 @@ const DesktopNavBar = () => {
 						<NavItem item={item}>{item.name}</NavItem>
 					</li>
 				))}
-				<li>
-					<NavItem
-						item={{
-							type: "NavLink",
-							to: "/auth/login?mode=login",
-							end: true,
-						}}
-					>
-						Log In
-					</NavItem>
-				</li>
-				<li>
-					<NavItem item={{ type: "string" }} onClick={handleLogOut}>
-						Log Out
-					</NavItem>
-				</li>
+				{!token ? (
+					<li>
+						<NavItem
+							item={{
+								type: "NavLink",
+								to: "/auth/login?mode=login",
+								end: true,
+							}}
+						>
+							Log In
+						</NavItem>
+					</li>
+				) : (
+					<li>
+						<NavItem
+							item={{ type: "string" }}
+							onClick={handleLogOut}
+						>
+							Log Out
+						</NavItem>
+					</li>
+				)}
 			</NavItemsContainer>
 		</Nav>
 	);

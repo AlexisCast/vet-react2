@@ -10,7 +10,7 @@ import { navItems } from "../../../util/navItems";
 
 import styles from "./SideBar.module.css";
 
-export const SideBar = () => {
+export const SideBar = ({ token }) => {
 	const submit = useSubmit();
 	const dispatch = useDispatch();
 
@@ -51,17 +51,19 @@ export const SideBar = () => {
 				</NavItem>
 			</header>
 			<NavItemsContainer className={styles.nav_items}>
-				<li>
-					<Button
-						as={Link}
-						to="/auth/login?mode=login"
-						size="lg"
-						className={`${styles.AccordionButton}`}
-						onClick={handleOnclick}
-					>
-						Log In
-					</Button>
-				</li>
+				{!token && (
+					<li>
+						<Button
+							as={Link}
+							to="/auth/login?mode=login"
+							size="lg"
+							className={`${styles.AccordionButton}`}
+							onClick={handleOnclick}
+						>
+							Log In
+						</Button>
+					</li>
+				)}
 				{navItemsWithSubItems.map((item, index) => (
 					<li key={index}>
 						{item.subItems ? (
@@ -98,16 +100,18 @@ export const SideBar = () => {
 						)}
 					</li>
 				))}
-				<li>
-					<Button
-						as={Link}
-						size="lg"
-						className={`${styles.AccordionButton}`}
-						onClick={handleLogOut}
-					>
-						Log Out
-					</Button>
-				</li>
+				{token && (
+					<li>
+						<Button
+							as={Link}
+							size="lg"
+							className={`${styles.AccordionButton}`}
+							onClick={handleLogOut}
+						>
+							Log Out
+						</Button>
+					</li>
+				)}
 			</NavItemsContainer>
 		</aside>
 	);

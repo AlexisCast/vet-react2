@@ -9,7 +9,7 @@ import { SideBar } from "../SideBar/SideBar";
 import { BarsIcon } from "../../Icons/Icons";
 import styles from "./MobileNavBar.module.css";
 
-const MobileNavBar = () => {
+const MobileNavBar = ({ token }) => {
 	const dispatch = useDispatch();
 
 	const drawerIsVisible = useSelector((state) => state.ui.drawerIsVisible);
@@ -36,7 +36,7 @@ const MobileNavBar = () => {
 			</Nav>
 
 			<Portal isOpen={drawerIsVisible} onClose={toggleDrawer}>
-				<SideBar />
+				<SideBar token={token} />
 			</Portal>
 		</>
 	);
