@@ -5,6 +5,7 @@ import Input from "./Input/Input";
 import Label from "./Label/Label";
 import TextArea from "./TextArea/TextArea";
 import Portal from "./Portal/Portal";
+import Table from "./Table/Table";
 
 export {
 	Accordion,
@@ -16,4 +17,5 @@ export {
 	NavItem,
 	NavItemsContainer,
 	Portal,
+	Table,
 };

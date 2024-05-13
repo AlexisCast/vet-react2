@@ -1,0 +1,13 @@
+.TableContainer {
+	width: fit-content;
+	padding: 0px 10px;
+}
+
+.section {
+	display: flex;
+	justify-content: center;
+}
+
+.TableContainer td button{
+	margin: 2px auto;
+}
